@@ -5,6 +5,7 @@ body
     padding: 0px;
 }
 
+/* #region Navbar */
 ul
 {
     list-style-type: none;
@@ -37,3 +38,5 @@ li a:hover
 {
     background-color: rgb(35, 76, 107);
 }
+/* #endregion */
+
