@@ -40,3 +40,23 @@ li a:hover .nav
 }
 /* #endregion */
 
+/* #region Events List */
+table.events
+{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+}
+
+table.events td
+{
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    overflow: hidden;
+    /* white-space: nowrap; */
+    text-overflow: ellipsis;
+    background-color: rgb(255, 255, 255);
+}
+/* #endregion */
