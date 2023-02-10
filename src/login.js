@@ -44,7 +44,7 @@ signIn.addEventListener('click', (e) => {
         .then(() => {
           // Data saved successfully!
           alert('Logged in successfully');
-          window.location.href = "home.html";
+          window.location.href = "index.html";
         })
         .catch((error) => {
           // The write failed...
