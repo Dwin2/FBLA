@@ -2,17 +2,101 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="index.css">
+    
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- My CSS -->
+    <link href="dashboard.css" rel="stylesheet">
+
+    <!-- Title -->
+	<title>Event Management Tool - Prototype</title>
 </head>
+
 <body>
-    <ul>
-        <li><a class="active" href="index.html">Home</a></li>
-        <li><a href="#create_event">Create Event</a></li>
-        <li><a href="#calendar">Calendar</a></li>
-        <li><a href="#about">About</a></li>
-        <li style="float:right"><a href="login.html">Log In</a></li>
-        <li style="float:right"><a href="settings.html">Settings</a></li>
-    </ul>
+    <!-- Sidenav bar -->
+	<nav>
+		<div style="height: 30px;"></div>
+		<a class="profilePic" href="account.html">
+			<img src="../img/avatars/avatar-2.jpg" alt="Account">
+		</a>
+		<div style="height: 75px;"></div>
+		<a class="active page" href="index.html">Dashboard</a>
+		<div style="height: 25px;"></div>
+		<a class="page" href="event.html">Create Event</a>
+		<div style="height: 25px;"></div>
+		<a class="page" href="calendar.html">Calendar</a>
+		<div style="height: 25px;"></div>
+		<a class="page" href="list.html">Events List</a>
+
+		<a class="settings" href="settings.html">
+			<img src="../img/icons/icon-gear.png" alt="Settings">
+		</a>
+    </nav>
+
+	<!-- Event Cards -->
+	<div class="main">
+		<div class="container-fluid">
+			<!-- Row 1 -->
+			<div class="row">
+				<a class="col-sm eventCard" href="event.html">
+					<img class="eventPhoto" src="../img/photos/unsplash-1.jpg" alt="event 1">
+					<div class="eventInfo">
+						<h1>Event 1</h1>
+						Feb 20, 2023<br>
+						7:00 PM - 8:00 PM<br>
+						Upper Canada College<br>
+						10 points
+					</div>
+					<div class="personCount">
+						<img src="../img/icons/icon-user.png" alt="Number of participants">
+						5
+					</div>
+					
+				</a>
+				<div class="col-sm eventCard">
+					<img class="eventPhoto" src="../img/photos/unsplash-2.jpg" alt="event 2">
+					<br><br><br>
+					<h1>Event 2</h1>
+					Date and time, duration <br>
+					Location <br>
+					#
+				</div>
+				<div class="col-sm eventCard">
+					Event 3
+				</div>
+			</div>
+			<!-- Row 2 -->
+			<div class="row">
+				<div class="col-sm eventCard">
+					<img class="eventPhoto" src="../img/photos/unsplash-3.jpg" alt="event 4">
+					<br><br><br>
+					<h1>Event 4</h1>
+					Date and time, duration <br>
+					Location <br>
+					#
+				</div>
+				<div class="col-sm eventCard">
+					Event 5
+				</div>
+				<div class="col-sm eventCard">
+					Event 6
+				</div>
+			</div>
+			<!-- Row 3 -->
+			<div class="row">
+				<div class="col-sm eventCard">
+					Event 7
+				</div>
+				<div class="col-sm eventCard">
+					Event 8
+				</div>
+				<div class="col-sm eventCard">
+					Event 9
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
