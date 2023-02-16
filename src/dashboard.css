@@ -27,18 +27,20 @@ body
   margin-left: 6%;
 }
 .card {
-  width: 300px;
-  background-color: lightgray;
-  position: relative;
+  width: 450px;
   margin-left: 6%;
   margin-top: 2%;
   display: inline-block;
+  vertical-align: top;
 }
 .card-title {
   font-size: 40px;
 }
 .card-text {
   font-size: 18px;
+}
+.tmp-card {
+  display: "none";
 }
 .myrow {
   display: inline-block;
