@@ -27,35 +27,36 @@
     <button id="logOut" type="button head" class="btn btn-danger txt-primary" style="font-size: 30px; margin-left: 60%;">Log Out</button>			  
     <!-- ADD NAV BAR TO HOME-->
   </div>
-  <h2 class="txt-primary" id="greet"></h2>
+  <h2 class="txt-primary" id="greet">No user found.</h2>
   <div class="headers">
 		  <button type="button" class="btn btn-info txt-primary" style="font-size: 40px;" onclick="change(1);">My Events</button>			  
       <button type="button" class="btn btn-success txt-primary" style="font-size: 40px;" onclick="change(0);">Points Collection</button>
       <button type="button" class="btn btn-warning txt-primary" style="font-size: 40px;">Event History</button>
       <hr class="my-4" style="width: 80%; margin-left: 6%; color:black; height: 3px;">
   </div>
-  <div id="points" class="collapse-in events">
+  <div id="points">
     <h4 class="txt-primary" id="myPoints"></h2>
   </div>
-  <div id="cards" class="collapse-in events">
+  <div id="cards">
 	</div>
 </body>
+
+
 <script type="text/javascript">
   function change(x) {
     if (x == 1) {
       document.getElementById("points").style.display = "none";
-      if (document.getElementById("cards").style.display != "none") {
-        document.getElementById("cards").style.display = "none";
-        
-      } else {
+      if (document.getElementById("cards").style.display == "none") {
         document.getElementById("cards").style.display = "block";
+      } else {
+        document.getElementById("cards").style.display = "none";
       }
     } else {
       document.getElementById("cards").style.display = "none";
-      if (document.getElementById("points").style.display != "none") {
-        document.getElementById("points").style.display = "none";
-      } else {
+      if (document.getElementById("points").style.display == "none") {
         document.getElementById("points").style.display = "block";
+      } else {
+        document.getElementById("points").style.display = "none";
       }
     }
   }
