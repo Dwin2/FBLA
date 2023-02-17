@@ -40,7 +40,7 @@ body
 .card-title {
   font-size: 40px;
 }
-.card-text {
+.card-txt {
   font-size: 18px;
 }
 .tmp-card {
@@ -51,4 +51,16 @@ body
 }
 #points {
   display: none;
+}
+.modal-header
+{
+display: block!important;
+}
+.modal-title
+{
+float: left;
+}
+.modal-header .close
+{
+float: right;
 }
