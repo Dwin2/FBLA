@@ -67,7 +67,7 @@
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-analytics.js";
     import {getAuth, createUserWithEmailAndPassword, signOut} from "https://www.gstatic.com/firebasejs/9.16.0/firebase-auth.js";
     import {getDatabase, set, ref, get, child, onValue} from "https://www.gstatic.com/firebasejs/9.16.0/firebase-database.js";
-
+    import {getData} from "./getStudentData.html";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -92,66 +92,8 @@
     //const {userId} = await getAuth;
     const userId = auth.currentUser;
 
-    //alert(userId.uid);
-    auth.onAuthStateChanged(function(user) {
-      //add progess bar
-        if (user) {
-            const name = ref(database, 'users/' + user.uid + '/name');
-                onValue(name, (snapshot) => {
-                const data = snapshot.val();
-                document.getElementById("greet").innerHTML =  "Welcome back, " + data +".";
-            });
-            const points = ref(database, 'users/' + user.uid + '/points');
-                onValue(points, (snapshot) => {
-                const data = snapshot.val();
-                document.getElementById("myPoints").innerHTML =  "You have " + data +" current points.";
-            });
-            const dbRef = ref(database, 'users/' + user.uid + '/events');
-            onValue(dbRef, (snapshot) => {
-              snapshot.forEach((childSnapshot) => {
-                const childKey = childSnapshot.key;
-                const childData = childSnapshot.val();
-                console.log(childData);
-                var tmpCard = '<div class="card" style="margin-left: 6%;"><div class="card-body bg-white">';
-                  
-                
-                const name = ref(database, 'events/' + childData + '/name');
-                    onValue(name, (snapshot) => {
-                    const data = snapshot.val();
-
-                    tmpCard += '<h5 class="card-title">' + data + '</h5>';
-                    tmpCard += '<hr class="my-4">';
-                });
-
-                const description = ref(database, 'events/' + childData + '/description');
-                    onValue(description, (snapshot) => {
-                    const data = snapshot.val();
-                    tmpCard += '<p class="card-text">'  + data + '</p>';
-                });
-                const location = ref(database, 'events/' + childData + '/location');
-                    onValue(location, (snapshot) => {
-                    const data = snapshot.val();
-                    tmpCard += '<p class="card-text"><strong>Location:</strong> ' + data + '</p>';
-                });
-                const stime = ref(database, 'events/' + childData + '/st');
-                    onValue(stime, (snapshot) => {
-                    const data = snapshot.val();
-                    tmpCard += '<p class="card-text"><strong>Time:</strong> ' + data + ' to ';
-                });
-                const etime = ref(database, 'events/' + childData + '/et');
-                    onValue(etime, (snapshot) => {
-                    const data = snapshot.val();
-                    tmpCard += data + '</p>';
-                    tmpCard += '<a href="#" class="btn btn-primary" style="margin-top: 2%; font-size: 20px;">More Info</a>';
-                    document.getElementById("cards").innerHTML += tmpCard;
-                });
-
-              });
-            }, {
-              onlyOnce: true
-            });
-        }
-    });
+    getData();
+    
     logOut.addEventListener('click', (e) => {
       signOut(auth).then(() => {
         window.location.href = "./login.html";

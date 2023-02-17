@@ -26,7 +26,7 @@ const database = getDatabase(app);
 
 
 
-signIn.addEventListener('click', (e) => {
+function logIn() {
     event.preventDefault();
 
     var email = document.getElementById('email_input').value;
@@ -56,9 +56,9 @@ signIn.addEventListener('click', (e) => {
         const errorMessage = error.message;
         alert(errorMessage);
       });
+};
 
-});
-signUp.addEventListener('click', (e) => {
+function signUp() {
     event.preventDefault();
     
     var email = document.getElementById('email_input').value;
@@ -91,4 +91,6 @@ signUp.addEventListener('click', (e) => {
             // The write failed...
             alert(error);
         });
-});
+};
+
+export {logIn, signUp};
