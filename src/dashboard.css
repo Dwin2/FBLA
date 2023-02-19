@@ -29,9 +29,6 @@ body
   height: 80px;
   margin-left: 6%;
 }
-#cards {
-  display: none;
-}
 .card {
   width: 450px;
   margin-left: 6%;
@@ -48,9 +45,6 @@ body
 }
 .myrow {
   display: inline-block;
-}
-#points {
-  display: none;
 }
 .modal-header
 {
