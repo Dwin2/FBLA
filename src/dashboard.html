@@ -163,6 +163,11 @@
                     const data = snapshot.val();
                     tmpCard += '<p class="txt"><strong>Location:</strong> ' + data + '</p>';
                 });
+                const date = ref(database, 'events/' + childData + '/date');
+                    onValue(date, (snapshot) => {
+                    const data = snapshot.val();
+                    tmpCard += '<p class="txt"><strong>Date:</strong> ' + data + '</p>';
+                });
                 const stime = ref(database, 'events/' + childData + '/st');
                     onValue(stime, (snapshot) => {
                     const data = snapshot.val();
