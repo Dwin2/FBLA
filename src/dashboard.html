@@ -26,9 +26,9 @@
 
 <body>
 	<!--ALERTS-->
-  <div class="modal fade" id="modal-alert">
+  <div class="modal fade" id="a-failed">
     <div class="modal-dialog" role="document">
-      <div id="alert-failed" class="alert alert-danger alert-dismissable txt" role="alert">
+      <div class="alert alert-danger alert-dismissable txt" role="alert">
         <strong>Failed to unregister.</strong>
       </div>
     </div>
@@ -47,7 +47,7 @@
       <button type="button" class="btn btn-warning txt-primary" style="font-size: 40px;">Event History</button>
       <hr class="my-4" style="width: 80%; margin-left: 6%; color:black; height: 3px;">
   </div>
-  <div id="points" style="display: none;">
+  <div id="points" style="display:none;">
     <h4 class="txt-primary" id="myPoints"></h2>
   </div>
   <div id="cards" style="display:none;">
@@ -66,7 +66,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          <button id="unreg-btn" type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#alert-failed">Unregister</button>
+          <button id="unreg-btn" type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#a-failed">Unregister</button>
         </div>
       </div>
     </div>
