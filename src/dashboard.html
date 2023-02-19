@@ -25,7 +25,16 @@
 </head>
 
 <body>
-	
+	<!--ALERTS-->
+  <div class="modal fade" id="modal-alert">
+    <div class="modal-dialog" role="document">
+      <div id="unRegisterAlert" class="alert alert-danger alert-dismissable txt" role="alert">
+        <strong>Failed to unregister.</strong>
+      </div>
+    </div>
+  </div>
+  
+
   <div>
     <img class="head-img head" src="../img/icons/icon-user.png">
     <button id="logOut" type="button head" class="btn btn-danger txt-primary" style="font-size: 30px; margin-left: 60%;">Log Out</button>			  
@@ -53,17 +62,14 @@
           </button>
         </div> -->
         <div class="modal-body">
-          <p class="card-txt">Are you sure you want to unregister from this event? You will not gain any points.</p>
+          <p class="txt">Are you sure you want to unregister from this event? You will not gain any points.</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-danger" onclick="unRegister(2);">Unregister</button>
+          <button id="unreg-btn" type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modal-alert">Unregister</button>
         </div>
       </div>
     </div>
-  </div>
-  <div class="alert alert-danger" role="alert">
-    Failed to unregister.
   </div>
 </body>
 
@@ -85,9 +91,6 @@
         document.getElementById("points").style.display = "none";
       }
     }
-  }
-  function unRegister(eventId) {
-    $('.unRegisterAlert').alert();
   }
 </script>
 <script type="module">
@@ -153,17 +156,17 @@
                 const description = ref(database, 'events/' + childData + '/description');
                     onValue(description, (snapshot) => {
                     const data = snapshot.val();
-                    tmpCard += '<p class="card-txt">'  + data + '</p>';
+                    tmpCard += '<p class="txt">'  + data + '</p>';
                 });
                 const location = ref(database, 'events/' + childData + '/location');
                     onValue(location, (snapshot) => {
                     const data = snapshot.val();
-                    tmpCard += '<p class="card-txt"><strong>Location:</strong> ' + data + '</p>';
+                    tmpCard += '<p class="txt"><strong>Location:</strong> ' + data + '</p>';
                 });
                 const stime = ref(database, 'events/' + childData + '/st');
                     onValue(stime, (snapshot) => {
                     const data = snapshot.val();
-                    tmpCard += '<p class="card-txt"><strong>Time:</strong> ' + data + ' to ';
+                    tmpCard += '<p class="txt"><strong>Time:</strong> ' + data + ' to ';
                 });
                 
                 const etime = ref(database, 'events/' + childData + '/et');
