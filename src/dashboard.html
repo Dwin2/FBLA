@@ -76,7 +76,6 @@
   </div>
 </body>
 
-
 <script type="text/javascript">
   function change(x) {
     if (x == 1) {
@@ -97,71 +96,44 @@
   }
 </script>
 <script type="module">
-    import {createUserWithEmailAndPassword, signOut, set, ref, get, child, onValue, app, auth, database, userId} from "./database/firebase.js";
-    import {logOut} from './database/login.js';
-    import {addUserData} from './database/getStudentData.js';
+    import {createUserWithEmailAndPassword, signOut, set, ref, get, child, onValue, app, auth, database, userId} from "./data/firebase.js";
+    import {logOut} from './data/login.js';
+    import {addUserData, addCardBody} from './data/helpers.js';
+
     auth.onAuthStateChanged(function(user) {
     //add progess bar
         if (user) {
           addUserData('users/' + user.uid + '/name', "greet", "Welcome back, ", ".");
           addUserData('users/' + user.uid + '/points', "myPoints", "You have ", " current points.")
           
-          const dbRef = ref(database, 'users/' + user.uid + '/events');
-          onValue(dbRef, (snapshot) => {
+          const userRef = ref(database, 'users/' + user.uid + '/events');
+          var idx = 0, idx2 = 0;
+          onValue(userRef, (snapshot) => {
             snapshot.forEach((childSnapshot) => {
+                idx2 ++;
                 const childKey = childSnapshot.key;
                 const childData = childSnapshot.val();
-                
-                var tmpCard = '<div class="card" style="margin-left: 6%;"><div class="card-body bg-white">';
-                
-                
-                const name = ref(database, 'events/' + childData + '/name');
-                    onValue(name, (snapshot) => {
-                    const data = snapshot.val();
+                //CHANGE CARDS TO EVENTS
+                addCardBody(idx2);
+                const eventRef = ref(database, 'events/' + childData);
+                onValue(eventRef, (snapshot) => {
+                  idx++;
+                  snapshot.forEach((childSnapshot) => {
+                    const field = childSnapshot.key;
+                    const data = childSnapshot.val();
+                    var id = idx + "-" + field;
 
-                    tmpCard += '<h5 class="card-title">' + data + '</h5>';
-                    tmpCard += '<hr class="my-4">';
+                    if (field == "at" || field == "bt") id = idx + "-time";
+                    if (field == "bt") document.getElementById(id).innerHTML += " to "
+                    document.getElementById(id).innerHTML += data;
+                  });
                 });
-
-                const description = ref(database, 'events/' + childData + '/description');
-                    onValue(description, (snapshot) => {
-                    const data = snapshot.val();
-                    tmpCard += '<p class="txt">'  + data + '</p>';
-                });
-                const location = ref(database, 'events/' + childData + '/location');
-                    onValue(location, (snapshot) => {
-                    const data = snapshot.val();
-                    tmpCard += '<p class="txt"><strong>Location:</strong> ' + data + '</p>';
-                });
-                const date = ref(database, 'events/' + childData + '/date');
-                    onValue(date, (snapshot) => {
-                    const data = snapshot.val();
-                    tmpCard += '<p class="txt"><strong>Date:</strong> ' + data + '</p>';
-                });
-                const stime = ref(database, 'events/' + childData + '/st');
-                    onValue(stime, (snapshot) => {
-                    const data = snapshot.val();
-                    tmpCard += '<p class="txt"><strong>Time:</strong> ' + data + ' to ';
-                });
-                
-                const etime = ref(database, 'events/' + childData + '/et');
-                    onValue(etime, (snapshot) => {
-                    const data = snapshot.val();
-                    tmpCard += data + '</p>';
-                    tmpCard += '<a href="./login.html" class="btn btn-primary" style="margin-top: 2%; font-size: 20px; margin-right: 6%;">More Info</a>';
-                    tmpCard += '<button data-toggle="modal" data-target="#modal" class="btn btn-danger" style="margin-top: 2%; font-size: 20px;"">Unregister</button>';
-                    document.getElementById("cards").innerHTML += tmpCard;
-                });
-            });
-            }, {
-              onlyOnce: true
+              });
             });
       }
     });
     
-    logOutBtn.addEventListener('click', (e) => {
-      logOut();
-    });
+    logOutBtn.addEventListener('click', (e) => {logOut();});
 
     function hello() {
       console.log(1);
