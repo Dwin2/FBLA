@@ -36,7 +36,10 @@
       </div>
     </div>
   </div>
-  
+  <!--TMP-->
+  <div style="display:none;">
+    <h2 id="tmp" class="txt-primary"></h2>
+  </div>
 
   <div>
     <img class="head-img head" src="../img/icons/icon-user.png">
@@ -69,7 +72,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          <button id="unreg-btn" type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#a-failed" onclick="hello();">Unregister</button>
+          <button id="unRegBtn" type="button" class="btn btn-danger" data-dismiss="modal">Unregister</button>
         </div>
       </div>
     </div>
@@ -94,11 +97,14 @@
       }
     }
   }
+  function unRegister(id) {
+    document.getElementById("tmp").innerHTML = id;
+  }
 </script>
 <script type="module">
     import {createUserWithEmailAndPassword, signOut, set, ref, get, child, onValue, app, auth, database, userId} from "./data/firebase.js";
     import {logOut} from './data/login.js';
-    import {addUserData, addCardBody} from './data/helpers.js';
+    import {addUserData, addCardBody, addEventInfo, unRegister} from './data/helpers.js';
 
     auth.onAuthStateChanged(function(user) {
     //add progess bar
@@ -107,36 +113,22 @@
           addUserData('users/' + user.uid + '/points', "myPoints", "You have ", " current points.")
           
           const userRef = ref(database, 'users/' + user.uid + '/events');
-          var idx = 0, idx2 = 0;
+          var idx = 0;
           onValue(userRef, (snapshot) => {
             snapshot.forEach((childSnapshot) => {
-                idx2 ++;
-                const childKey = childSnapshot.key;
-                const childData = childSnapshot.val();
-                //CHANGE CARDS TO EVENTS
-                addCardBody(idx2);
-                const eventRef = ref(database, 'events/' + childData);
-                onValue(eventRef, (snapshot) => {
-                  idx++;
-                  snapshot.forEach((childSnapshot) => {
-                    const field = childSnapshot.key;
-                    const data = childSnapshot.val();
-                    var id = idx + "-" + field;
-
-                    if (field == "at" || field == "bt") id = idx + "-time";
-                    if (field == "bt") document.getElementById(id).innerHTML += " to "
-                    document.getElementById(id).innerHTML += data;
-                  });
-                });
-              });
+              idx ++;
+              const childKey = childSnapshot.key;
+              const childData = childSnapshot.val();
+              //CHANGE CARDS TO EVENTS
+              addCardBody(idx);
+              addEventInfo(childData);
             });
-      }
+          });
+          unRegBtn.addEventListener('click', (e) => {unRegister(document.getElementById("tmp").innerHTML, user.uid);}); 
+        }
     });
     
     logOutBtn.addEventListener('click', (e) => {logOut();});
-
-    function hello() {
-      console.log(1);
-    }
+    
 </script>
 </html>
