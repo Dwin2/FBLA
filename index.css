@@ -6,57 +6,26 @@ body
 }
 
 /* #region Navbar */
-ul.nav
-{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: rgb(0, 109, 193);
-}
-  
-li.nav
-{
-    float: left;
-}
-  
-li a.nav
-{
+.navbar-custom {
+    width: 100%;
+    background-color: #233c6a;
     display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+    float: right;
+    margin-right: 0%;
+    padding: 0%;
 }
 
-li a:hover .nav
-{
-    background-color: rgb(0, 74, 130);
+.navbar-custom a {
+    color: #ffffff;
 }
 
-.active
-{
-    background-color: rgb(35, 76, 107);
-}
-/* #endregion */
-
-/* #region Events List */
-table.events
-{
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: rgb(255, 255, 255);
+a.navbar-brand {
+    margin: 0%;
 }
 
-table.events td
-{
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid black;
-    overflow: hidden;
-    /* white-space: nowrap; */
-    text-overflow: ellipsis;
-    background-color: rgb(255, 255, 255);
+#logo {
+    width: 100%;
+    margin: 0%;
 }
+
 /* #endregion */
