@@ -1,6 +1,5 @@
 import {set, ref, get, child, onValue, app, auth, database, userId, remove} from './firebase.js';
 
-
 function addUserData(path, id, msgStart, msgEnd) {
     const v = ref(database, path);
         onValue(v, (snapshot) => {

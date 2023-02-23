@@ -19,6 +19,9 @@
 
 	  <!-- My CSS -->
     <link href="dashboard.css" rel="stylesheet">
+    <link rel="stylesheet" href="../index.css">
+
+    <!--MY HTML-->
 	
     <!-- Title -->
 	<title>Student Dashboard</title>
@@ -40,12 +43,10 @@
   <div style="display:none;">
     <h2 id="tmp" class="txt-primary"></h2>
   </div>
+  
+  <div w3-include-html="./elements/navbar.html"></div> 
 
-  <div>
-    <img class="head-img head" src="../img/icons/icon-user.png">
-    <button id="logOutBtn" type="button head" class="btn btn-danger txt-primary" style="font-size: 30px; margin-left: 60%;">Log Out</button>			  
-    <!-- ADD NAV BAR TO HOME-->
-  </div>
+  <button id="logOutBtn" type="button" class="head btn btn-danger txt-primary" style="font-size: 30px; margin-left: 60%;">Log Out</button>			  
   <h2 class="txt-primary" id="greet">No user found.</h2>
   <div class="headers">
 		  <button type="button" class="btn btn-info txt-primary" style="font-size: 40px;" onclick="change(1);">My Events</button>			  
@@ -58,6 +59,9 @@
   </div>
   <div id="cards" style="display:none;">
 	</div>
+
+  <!--MODALS-->
+
   <div class="modal fade" id="modal">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -77,9 +81,42 @@
       </div>
     </div>
   </div>
+
+
+
+
+
 </body>
 
 <script type="text/javascript">
+  //var extern = document.getElementsByTagName("link")[0].import;
+  function includeHTML() {
+      var z, i, elmnt, file, xhttp;
+      /*loop through a collection of all HTML elements:*/
+      z = document.getElementsByTagName("*");
+      for (i = 0; i < z.length; i++) {
+        elmnt = z[i];
+        /*search for elements with a certain atrribute:*/
+        file = elmnt.getAttribute("w3-include-html");
+        if (file) {
+          /*make an HTTP request using the attribute value as the file name:*/
+          xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4) {
+              if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+              if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+              /*remove the attribute, and call this function once more:*/
+              elmnt.removeAttribute("w3-include-html");
+              includeHTML();
+            }
+          }      
+          xhttp.open("GET", file, true);
+          xhttp.send();
+          /*exit the function:*/
+          return;
+        }
+      }
+    };
   function change(x) {
     if (x == 1) {
       document.getElementById("points").style.display = "none";
@@ -100,6 +137,7 @@
   function unRegister(id) {
     document.getElementById("tmp").innerHTML = id;
   }
+  includeHTML();
 </script>
 <script type="module">
     import {createUserWithEmailAndPassword, signOut, set, ref, get, child, onValue, app, auth, database, userId} from "./data/firebase.js";
@@ -125,10 +163,16 @@
             });
           });
           unRegBtn.addEventListener('click', (e) => {unRegister(document.getElementById("tmp").innerHTML, user.uid);}); 
+          logOutBtn.addEventListener('click', (e) => {logOut();});
+          addEventModal.addEventListener('click', (e) => {
+            openModal();
+            //addEvent.addEventListener()
+          });
         }
     });
     
-    logOutBtn.addEventListener('click', (e) => {logOut();});
+    
+
     
 </script>
 </html>
