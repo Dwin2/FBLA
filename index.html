@@ -20,39 +20,48 @@
         <!-- Main body -->
         <div class="container-fluid container-custom">
             <div class="row">
-                <div class="column" id="highlight">
+                <div class="col" id="highlight">
                     <div>
                         <h1> Congratulations to {points winner} and {random winner}!</h1>
                     </div>
                 </div>
             </div>
-            <div class="row fluid">
-                <div class="column container-fluid container-custom" id="leaderboard">
-                    <div class="row">
-                        <div class="column-fluid leaderboard-name">
+            <div class="row container-fluid">
+                <div class="col container-fluid container-custom" id="leaderboard">
+                    <div class="row leaderboard-header">
+                        <div class="col-sm leaderboard-name">
                             Name
                         </div>
-                        <div class="column-fluid leaderboard-points">
+                        <div class="col leaderboard-points">
+                            # of Points
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm leaderboard-name">
+                            Name
+                        </div>
+                        <div class="col leaderboard-points">
                             # of Points
                         </div>
                     </div>
                 </div>
-                <div class="column event">
-                    event
+                <div class="col event">
+                    <h3>Event Name</h3>
+                    <p>Date</p>
                 </div>
             </div>
             <div class="row">
-                <div class="column" id="calendar">
+                <div class="col" id="calendar">
                     calendar
                 </div>
-                <div class="column event">
+                <div class="col event">
                     event
                 </div>
             </div>
         </div>
 
         <!-- Calendar -->
-        <!-- <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FToronto&showTitle=0&showNav=1&showPrint=0&showCalendars=0&showTz=0&mode=MONTH&src=Y18yNzIyNWEwNWU0ZDEyOTkzMDY3YjY2OTEyMDI3OTg1MjVmMWU3Y2NkYTdiOTU5YzVkOGIwOWEwYjg5YTAyZDZhQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23AD1457" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe> -->
+        <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FToronto&showTitle=0&showNav=1&showPrint=0&showCalendars=0&showTz=0&mode=MONTH&src=Y18yNzIyNWEwNWU0ZDEyOTkzMDY3YjY2OTEyMDI3OTg1MjVmMWU3Y2NkYTdiOTU5YzVkOGIwOWEwYjg5YTAyZDZhQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23AD1457" style="border:solid 1px #777" width="50%" height="600" frameborder="0" scrolling="no"></iframe>
         
 
     </body>
