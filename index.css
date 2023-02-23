@@ -2,83 +2,78 @@ body {
     overscroll-behavior-y: none;
 }
 
-
+.profilePic {
+    border-radius: 50%;
+    width: 25%;
+    margin: 25px;
+}
 
 /* #region Navbar */
-.navbar-custom {
-    width: 100%;
-    background-color: #233c6a;
-}
+    .navbar-custom {
+        width: 100%;
+        background-color: #233c6a;
+    }
 
-.navbar-custom a {
-    color: #ffffff;
-    font-size: 25px;
-    overscroll-behavior-y: none;
-}
+    .navbar-custom a {
+        color: #ffffff;
+        font-size: 25px;
+        overscroll-behavior-y: none;
+    }
 
-a.navbar-brand {
-    margin: 0%;
-}
+    a.navbar-brand {
+        margin: 0%;
+    }
 
-#logo {
-    height: 50px;
-    margin: 0%;
-}
+    #logo {
+        height: 50px;
+        margin: 0%;
+    }
 /* #endregion */
 
 /* #region main body */
+    .container-custom {
+        padding-top: 0%;
+    }
 
-.container-custom {
-    padding-top: 0%;
-}
+        /* #region highlight */
+            #highlight {
+                padding: 0px !important;
+            }
 
-#highlight {
-    padding: 0px !important;
-}
+            #highlight div {
+                background-color: #ccc;
+                padding: 50px 30px;
+            }
+        /* #endregion highlight */
 
-#highlight div {
-    background-color: #ccc;
-    padding: 50px 30px;
-}
+        /* #region leaderboard */
+            /* #region leaderboard placement */
+                .leaderboard-placement {
+                    font-size: 50px;
+                    color: #ffffff;
+                    background-color: #22468e;
+                }
+            /* #endregion leaderboard placement */
 
-/* #leaderboard {
-} */
+            .leaderboard-header {
+                background-color: #527fd3;
+                color: #ffffff;
+            }
 
-#header {
+            .leaderboard-name {
+                padding: 10px;
+            }
 
-}
+            .leaderboard-points {
+                padding: 10px;
+            }
 
-.leaderboard .row div {
-    border: solid;
-    padding: 10px;
-    font-size: 50px;
-    width: 50%;
-}
+            #calendar {
+                height: 300px;
+            }
 
-.leaderboard-header {
-    background-color: #527fd3;
-    color: #ffffff;
-}
-
-.leaderboard-name {
-    border: solid;
-    border-color: #000;
-    padding: 10px;
-}
-
-.leaderboard-points {
-    border: solid;
-    border-color: #000;
-    padding: 10px;
-}
-
-#calendar {
-    height: 300px;
-}
-
-.event {
-    height: 150px;
-}
-
-
-/* #endregion */
+            .event {
+                height: 150px;
+            }
+        /* #endregion leaderboard */
+/* #endregion main body */

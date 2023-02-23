@@ -7,9 +7,11 @@
     <body>
         <!-- Navbar -->
         <nav class="navbar navbar-custom sticky-top">
+            <!-- Logo Image -->
             <a class="navbar-brand" href="/index.html">
                 <img id="logo" src="/src/img/icons/ucc_logo_white.png">
             </a>
+            <!-- Other pages -->
             <div class="navbar-nav col-5"></div>
             <a class="navbar-nav" href="#">Events</a>
             <a class="navbar-nav" href="#">Calendar</a>
@@ -19,6 +21,7 @@
 
         <!-- Main body -->
         <div class="container-fluid container-custom">
+            <!-- Winners -->
             <div class="row">
                 <div class="col" id="highlight">
                     <div>
@@ -26,8 +29,18 @@
                     </div>
                 </div>
             </div>
-            <div class="row container-fluid">
+
+            <!-- Leaderboard segment -->
+            <div class="row">
+                <!-- User Placement -->
+                <div class="col container-fluid container-custom leaderboard-placement">
+                    <img class="profilePic" src="/src/img/avatars/avatar-2.jpg">
+                    Your placement: 5th
+                </div>
+
+                <!-- Leaderboard table -->
                 <div class="col container-fluid container-custom" id="leaderboard">
+                    <!-- Leaderboard Header -->
                     <div class="row leaderboard-header">
                         <div class="col-sm leaderboard-name">
                             Name
@@ -36,26 +49,26 @@
                             # of Points
                         </div>
                     </div>
+
+                    <!-- Row 1 -->
                     <div class="row">
-                        <div class="col-sm leaderboard-name">
-                            Name
+                        <div class="col leaderboard-name">
+                            person.name
                         </div>
                         <div class="col leaderboard-points">
-                            # of Points
+                            person.points
                         </div>
                     </div>
-                </div>
-                <div class="col event">
-                    <h3>Event Name</h3>
-                    <p>Date</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col" id="calendar">
-                    calendar
-                </div>
-                <div class="col event">
-                    event
+
+                    <!-- Row 2 -->
+                    <div class="row">
+                        <div class="col-sm leaderboard-name">
+                            person.name
+                        </div>
+                        <div class="col leaderboard-points">
+                            person.points
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
