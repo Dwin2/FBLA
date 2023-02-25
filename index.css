@@ -5,8 +5,9 @@ body {
 .profilePic {
     border-radius: 50%;
     width: 25%;
-    margin: 25px;
+    margin: 1vw;
 }
+
 
 /* #region Navbar */
     .navbar-custom {
@@ -31,29 +32,48 @@ body {
 /* #endregion */
 
 /* #region main body */
+    #main-body {
+        border-spacing: 10px;
+    }
+
     .container-custom {
         padding-top: 0%;
     }
 
-        /* #region highlight */
-            #highlight {
-                padding: 0px !important;
+    /* #region highlight */
+        #highlight {
+            padding: 0px !important;
+        }
+
+        #highlight div {
+            background-color: #ccc;
+            padding: 50px 30px;
+        }
+    /* #endregion highlight */
+
+    /* #region leaderboard */
+        /* #region leaderboard placement */
+            .leaderboard-placement {
+                margin: 25px;
+                font-size: 3vw;
+                color: #ffffff;
+                background-color: #22468e;
+                border-radius: 3vw;
+                margin: 10px !important;
+                max-height: 25%;
+            }
+        /* #endregion leaderboard placement */
+
+        /* #region leaderboard main table */
+            #leaderboard .row div {
+                font-size: 25px;
             }
 
-            #highlight div {
-                background-color: #ccc;
-                padding: 50px 30px;
+            .leaderboard-rank {
+                text-align: center;
+                max-width: 20px !important;
+                padding: 10px;
             }
-        /* #endregion highlight */
-
-        /* #region leaderboard */
-            /* #region leaderboard placement */
-                .leaderboard-placement {
-                    font-size: 50px;
-                    color: #ffffff;
-                    background-color: #22468e;
-                }
-            /* #endregion leaderboard placement */
 
             .leaderboard-header {
                 background-color: #527fd3;
@@ -67,13 +87,24 @@ body {
             .leaderboard-points {
                 padding: 10px;
             }
+        /* #endregion  */
+    /* #endregion leaderboard */
 
-            #calendar {
-                height: 300px;
-            }
+    /* #region event-cards */
+        .event-container {
+            margin: 10px;
+        }
 
-            .event {
-                height: 150px;
-            }
-        /* #endregion leaderboard */
+        .event-card {
+            margin: 10px;
+            margin-top: 50px;
+            background-color: #9fc1ff;
+            border-radius: 2vw;
+            padding: 10px;
+            padding-left: 5%;
+            margin: auto;
+            cursor: pointer;
+        }
+    /* #endregion event-cards */
+
 /* #endregion main body */
