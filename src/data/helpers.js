@@ -38,11 +38,13 @@ function addEventInfo(childData, idx) {
             const data = childSnapshot.val();
             var id = idx + "-" + field;
             if (field == "at" || field == "bt") id = idx + "-time";
-            if (field == "bt") document.getElementById(id).innerHTML += " to "
-            document.getElementById(id).innerHTML += data;
-            if (field == "tags") {
-                if (data == "sports") document.getElementById(id).classList.add("badge-danger");
-                else document.getElementById(id).classList.add("badge-primary");
+            if (field == "bt") document.getElementById(id).innerHTML += " to ";
+            if (field != "students") {
+                document.getElementById(id).innerHTML += data;
+                if (field == "tags") {
+                    if (data == "sports") document.getElementById(id).classList.add("badge-danger");
+                    else document.getElementById(id).classList.add("badge-primary");
+                }
             }
         });
     });
@@ -59,12 +61,17 @@ function unRegister(id, uid) {
     // });
 }
 function addEvent(uid, id) {
-    console.log(id);
     //check already registed
     const v = ref(database, 'users/' + uid + '/events/' + id);
     set(v, {
         id : parseInt(id)
     });
+    console.log("HELLO");
+    const v2 = ref(database, 'events/' + id + '/students/' + uid);
+    set(v2, {
+        id : uid
+    });
+    location.reload();
 }
 //var extern = document.getElementsByTagName("link")[0].import;
 function includeHTML() {
