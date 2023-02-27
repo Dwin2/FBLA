@@ -80,7 +80,7 @@ body
   width: 450px;
   margin-left: 6%;
   margin-top: 2%;
-  display: inline-block;
+  display: inline-block !important;
   vertical-align: top;
   border-width: 3px;
 }
