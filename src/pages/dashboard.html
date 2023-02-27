@@ -59,16 +59,16 @@
   </div>
   <div id="points" style="display:none;">
     
+    <h4 id="myPoints"></h2>
     <!-- Leaderboard segment -->
     <div class="row">
       <!-- User Placement -->
-      <div class="col-5 leaderboard-placement shadow">
+      <div class="col-5 leaderboard-placement shadow" id="placement">
           <img class="profilePic" src="/src/img/avatars/avatar-2.jpg">
-          Your placement: 5th
-          <h4 id="myPoints"></h2>
+          Your ranking:
       </div>
       
-
+      
       <!-- Leaderboard table -->
       <div class="col container-fluid container-custom" id="leaderboard">
           <!-- Leaderboard Header -->
@@ -169,14 +169,16 @@
 <script type="module">
     import {createUserWithEmailAndPassword, signOut, set, ref, get, child, onValue, app, auth, database, userId} from "../data/firebase.js";
     import {logOut} from '../data/login.js';
-    import {addUserData, addCardBody, addEventInfo, unRegister, includeHTML} from '../data/helpers.js';
+    import {addUserData, addCardBody, addEventInfo, unRegister, includeHTML, getRank} from '../data/helpers.js';
     includeHTML();
     auth.onAuthStateChanged(function(user) {
     //add progess bar
         if (user) {
           addUserData('users/' + user.uid + '/name', "greet", "Welcome back, ", ".");
           addUserData('users/' + user.uid + '/points', "myPoints", "You have ", " current points.")
-          
+
+          getRank(user.uid);
+
           const userRef = ref(database, 'users/' + user.uid + '/events');
           onValue(userRef, (snapshot) => {
             snapshot.forEach((childSnapshot) => {

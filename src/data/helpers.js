@@ -79,28 +79,51 @@ function includeHTML() {
     /*loop through a collection of all HTML elements:*/
     z = document.getElementsByTagName("*");
     for (i = 0; i < z.length; i++) {
-      elmnt = z[i];
-      /*search for elements with a certain atrribute:*/
-      file = elmnt.getAttribute("w3-include-html");
-      if (file) {
+        elmnt = z[i];
+        /*search for elements with a certain atrribute:*/
+        file = elmnt.getAttribute("w3-include-html");
+        if (file) {
         /*make an HTTP request using the attribute value as the file name:*/
         xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
-          if (this.readyState == 4) {
+            if (this.readyState == 4) {
             if (this.status == 200) {elmnt.innerHTML = this.responseText;}
             if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
             /*remove the attribute, and call this function once more:*/
             elmnt.removeAttribute("w3-include-html");
             includeHTML();
-          }
+            }
         }      
         xhttp.open("GET", file, true);
         xhttp.send();
         /*exit the function:*/
         return;
-      }
+        }
     }
-  };
+};
+function getRank(uid) {
 
-export {addUserData, addCardBody, addEventInfo, unRegister, addEvent, includeHTML};
+    const pointsRef = ref(database, 'users/' + uid + '/points');
+    onValue(pointsRef, (snapshot) => {
+        const points = snapshot.val();
+
+        const userRef = ref(database, 'users/');
+        onValue(userRef, (snapshot) => {
+            var rank = 1;
+            snapshot.forEach((childSnapshot) => {
+                const childKey = childSnapshot.key;
+                const childData = childSnapshot.val();
+                //console.log(childKey, uid, childData['points']);
+                if (childData['points'] > points) rank+= 1;
+            });
+            document.getElementById("placement").innerHTML += rank;
+            if (rank == 1) document.getElementById("placement").innerHTML += "st";
+            else if (rank == 2) document.getElementById("placement").innerHTML += "nd";
+            else if (rank == 3) document.getElementById("placement").innerHTML += "rd";
+            else document.getElementById("placement").innerHTML += "th";
+        });
+    });    
+}
+
+export {addUserData, addCardBody, addEventInfo, unRegister, addEvent, includeHTML, getRank};
 
