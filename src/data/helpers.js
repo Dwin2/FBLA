@@ -10,7 +10,8 @@ function addUserData(path, id, msgStart, msgEnd) {
 function addCardBody(id, flag) {
     var cardBody = '<div class="card" style="margin-left: 6%;">' +
     '<div class="card-body bg-white">' + 
-    '<h5 class="card-title" id="' + id + '-name"></h5>' + 
+    '<h5 class="card-title" id="' + id + '-name"></span></h5>' + 
+    '<h5 class="card-tag"><span class="badge" id="' + id + '-tags"></span></h5>' +
     '<hr class="my-4">' + 
     '<p class="txt" id="' + id + '-description"></p>' + 
     '<p class="txt" id="' + id + '-location"><strong>Location: </strong></p>' + 
@@ -22,7 +23,7 @@ function addCardBody(id, flag) {
         '</div>' + 
         '</div>';
     } else {
-        cardBody += '<button data-toggle="modal" data-target="#modal" class="btn btn-danger" style="margin-top: 2%; font-size: 20px;" onclick="register('+ id + ');">Register</button>' +
+        cardBody += '<button data-toggle="modal" data-target="#modal" class="btn btn-success" style="margin-top: 2%; font-size: 20px;" onclick="register('+ id + ');">Register</button>' +
         '</div>' + 
         '</div>';
     }
@@ -39,6 +40,10 @@ function addEventInfo(childData, idx) {
             if (field == "at" || field == "bt") id = idx + "-time";
             if (field == "bt") document.getElementById(id).innerHTML += " to "
             document.getElementById(id).innerHTML += data;
+            if (field == "tags") {
+                if (data == "sports") document.getElementById(id).classList.add("badge-danger");
+                else document.getElementById(id).classList.add("badge-primary");
+            }
         });
     });
 }

@@ -87,6 +87,9 @@ body
 .card-title {
   font-size: 40px;
 }
+.card-tag {
+  font-size: 30px;
+}
 .tmp-card {
   display: "none";
 }
