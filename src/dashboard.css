@@ -13,6 +13,35 @@
 .nav-txt {
   font: 'Libre Franklin', sans-serif;
 }
+.card {
+  width: 450px;
+  margin-left: 6%;
+  margin-top: 2%;
+  display: inline-block;
+  vertical-align: top;
+  border-width: 3px;
+}
+.card-title {
+  font-size: 40px;
+}
+.tmp-card {
+  display: "none";
+}
+.myrow {
+  display: inline-block;
+}
+.txt-primary {
+  margin-left: 6%;
+  margin-top: 4%;
+  font-size: 60px;
+  font-family: 'Nexa Slab Bold FREE', sans-serif;
+}
+.txt-secondary {
+  font-family: 'Nexa Slab Regular FREE', sans-serif;
+}
+.txt {
+  font-size: 18px;
+}
 
 
 /* Removes the white frame around the page */

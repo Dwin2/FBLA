@@ -53,11 +53,63 @@
   
   <div class="headers">
 		  <button type="button" class="btn btn-1 txt-primary" style="font-size: 40px;" onclick="change(1);">My Events</button>			  
-      <button type="button" class="btn btn-success txt-primary" style="font-size: 40px;" onclick="change(0);">Points Collection</button>
+      <button type="button" class="btn btn-success txt-primary" style="font-size: 40px;" onclick="change(0);">Rankings</button>
       <button type="button" class="btn btn-danger txt-primary" style="font-size: 40px;">Event History</button>
   </div>
   <div id="points" style="display:none;">
-    <h4 class="txt-primary" id="myPoints"></h2>
+    
+    <!-- Leaderboard segment -->
+    <div class="row">
+      <!-- User Placement -->
+      <div class="col-5 leaderboard-placement shadow">
+          <img class="profilePic" src="/src/img/avatars/avatar-2.jpg">
+          Your placement: 5th
+          <h4 id="myPoints"></h2>
+      </div>
+      
+
+      <!-- Leaderboard table -->
+      <div class="col container-fluid container-custom" id="leaderboard">
+          <!-- Leaderboard Header -->
+          <div class="row leaderboard-header">
+              <div class="col leaderboard-rank">
+                  #
+              </div>
+              <div class="col-2 leaderboard-name">
+                  Name
+              </div>
+              <div class="col leaderboard-points">
+                  # of Points
+              </div>
+          </div>
+
+          <!-- Row 1 -->
+          <div class="row">
+              <div class="col leaderboard-rank">
+                  1
+              </div>
+              <div class="col-2 leaderboard-name">
+                  Name
+              </div>
+              <div class="col leaderboard-points">
+                  Points
+              </div>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="row">
+              <div class="col leaderboard-rank">
+                  2
+              </div>
+              <div class="col-2 leaderboard-name">
+                  Name
+              </div>
+              <div class="col leaderboard-points">
+                  # of Points
+              </div>
+          </div>
+      </div>
+  </div>
   </div>
   <div id="cards" style="display:none;">
 	</div>
@@ -158,22 +210,20 @@
             snapshot.forEach((childSnapshot) => {
               const childKey = childSnapshot.key;
               const childData = childSnapshot.val();
+
               //CHANGE CARDS TO EVENTS
-              addCardBody(childKey);
-              addEventInfo(childData, childKey);
+              addCardBody(childKey, false);
+              addEventInfo(childKey, childKey);
             });
           });
           unRegBtn.addEventListener('click', (e) => {unRegister(document.getElementById("tmp").innerHTML, user.uid);}); 
           logOutBtn.addEventListener('click', (e) => {logOut();});
-          addEventModal.addEventListener('click', (e) => {
-            openModal();
-            //addEvent.addEventListener()
-          });
+          // addEventModal.addEventListener('click', (e) => {
+          //   openModal();
+          //   //addEvent.addEventListener()
+          // });
         }
     });
-    
-    
-
     
 </script>
 </html>
