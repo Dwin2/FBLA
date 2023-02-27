@@ -1,156 +1,120 @@
-body {
-    overscroll-behavior-y: none;
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 
-.profilePic {
-    border-radius: 50%;
-    width: 25%;
-    margin: 1vw;
+/* Set a style for all buttons */
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
 }
 
+button:hover {
+  opacity: 0.8;
+}
 
-/* #region Navbar */
-    .navbar-custom {
-        width: 100%;
-        background-color: #233c6a;
-    }
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
 
-    .navbar-custom a {
-        color: #ffffff;
-        font-size: 25px;
-        overscroll-behavior-y: none;
-    }
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
 
-    a.navbar-brand {
-        margin: 0%;
-    }
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
 
-    #logo {
-        height: 50px;
-        margin: 0%;
-    }
-/* #endregion */
+.container {
+  padding: 16px;
+}
 
-/* #region main body */
-    #main-body {
-        border-spacing: 10px;
-    }
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
 
-    .container-custom {
-        padding-top: 0%;
-    }
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
 
-    /* #region highlight */
-        #highlight {
-            padding: 0px !important;
-        }
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
 
-        #highlight div {
-            background-color: #ccc;
-            padding: 50px 30px;
-        }
-    /* #endregion highlight */
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
 
-    /* #region leaderboard */
-        /* #region leaderboard placement */
-            .leaderboard-placement {
-                margin: 25px;
-                font-size: 3vw;
-                color: #ffffff;
-                background-color: #22468e;
-                border-radius: 3vw;
-                margin: 10px !important;
-                max-height: 25%;
-            }
-        /* #endregion leaderboard placement */
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
 
-        /* #region leaderboard main table */
-            #leaderboard .row div {
-                font-size: 25px;
-            }
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
 
-            .leaderboard-rank {
-                text-align: center;
-                max-width: 20px !important;
-                padding: 10px;
-            }
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
 
-            .leaderboard-header {
-                background-color: #527fd3;
-                color: #ffffff;
-            }
-
-            .leaderboard-name {
-                padding: 10px;
-            }
-
-            .leaderboard-points {
-                padding: 10px;
-            }
-        /* #endregion  */
-    /* #endregion leaderboard */
-
-    /* #region event-cards */
-        .event-container {
-            margin: 10px;
-        }
-
-        .event-card {
-            margin: 10px;
-            margin-top: 50px;
-            background-color: #9fc1ff;
-            border-radius: 2vw;
-            padding: 10px;
-            padding-left: 5%;
-            margin: auto;
-            cursor: pointer;
-        }
-    /* #endregion event-cards */
-
-/* #endregion main body */
-
-
-/*COPIED */
-.btn-1 {
-    background-color:#233c6a;
-    color : white
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
   }
-  .btn:hover {
-    color:white;
+  .cancelbtn {
+     width: 100%;
   }
-  .my-4 {
-    width: 100%; color:#212529;
-    border-width: 4px;
-  }
-  .nav-txt {
-    font: 'Libre Franklin', sans-serif;
-  }
-  .card {
-    width: 450px;
-    margin-left: 6%;
-    margin-top: 2%;
-    display: inline-block;
-    vertical-align: top;
-    border-width: 3px;
-  }
-  .card-title {
-    font-size: 40px;
-  }
-  .tmp-card {
-    display: "none";
-  }
-  .myrow {
-    display: inline-block;
-  }
-  .txt-primary {
-    margin-left: 6%;
-    margin-top: 4%;
-    font-size: 60px;
-    font-family: 'Nexa Slab Bold FREE', sans-serif;
-  }
-  .txt-secondary {
-    font-family: 'Nexa Slab Regular FREE', sans-serif;
-  }
-  .txt {
-    font-size: 18px;
-  }
+}

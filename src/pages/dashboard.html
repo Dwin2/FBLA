@@ -19,7 +19,7 @@
 	  <!-- My CSS -->
     <!--<link href="dashboard.css" rel="stylesheet">-->
     <link rel="stylesheet" href="./dashboard.css">
-    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="./home.css">
 
     <!--MY HTML-->
 	
@@ -46,7 +46,7 @@
     <h2 id="tmp" class="txt-primary"></h2>
   </div>
   
-  <div w3-include-html="./elements/navbar.html"></div> 
+  <div w3-include-html="../elements/navbar.html"></div> 
 
   <button id="logOutBtn" type="button" class="btn btn-danger txt-primary" style="font-size: 30px; margin-left: 80%;">Log Out</button>			  
   <h2 class="txt-primary" id="greet" style="text-align: center;">No user found.</h2>
@@ -167,9 +167,9 @@
   }
 </script>
 <script type="module">
-    import {createUserWithEmailAndPassword, signOut, set, ref, get, child, onValue, app, auth, database, userId} from "./data/firebase.js";
-    import {logOut} from './data/login.js';
-    import {addUserData, addCardBody, addEventInfo, unRegister, includeHTML} from './data/helpers.js';
+    import {createUserWithEmailAndPassword, signOut, set, ref, get, child, onValue, app, auth, database, userId} from "../data/firebase.js";
+    import {logOut} from '../data/login.js';
+    import {addUserData, addCardBody, addEventInfo, unRegister, includeHTML} from '../data/helpers.js';
     includeHTML();
     auth.onAuthStateChanged(function(user) {
     //add progess bar
