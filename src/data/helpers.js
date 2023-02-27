@@ -17,16 +17,14 @@ function addCardBody(id) {
     '<p class="txt" id="' + id + '-date"><strong>Date: </strong></p>' + 
     '<p class="txt" id="' + id + '-time"><strong>Time: </strong></p>' + 
     '<a href="./login.html" class="btn btn-primary" style="margin-top: 2%; font-size: 20px; margin-right: 6%;">More Info</a>' + 
-    '<button data-toggle="modal" data-target="#modal" class="btn btn-danger" style="margin-top: 2%; font-size: 20px;" onclick="unRegister(' + id + ');">Unregister</button>' +
+    '<button data-toggle="modal" data-target="#modal" class="btn btn-danger" style="margin-top: 2%; font-size: 20px;" onclick="unRegister(' + "'" + id +"'" + ');">Unregister</button>' +
     '</div>' + 
     '</div>';
     document.getElementById("cards").innerHTML += cardBody;
 }
-var idx = 0;
-function addEventInfo(childData) {
+function addEventInfo(childData, idx) {
     const eventRef = ref(database, 'events/' + childData);
     onValue(eventRef, (snapshot) => {
-        idx++;
         snapshot.forEach((childSnapshot) => {
             const field = childSnapshot.key;
             const data = childSnapshot.val();
@@ -38,8 +36,9 @@ function addEventInfo(childData) {
     });
 }
 function unRegister(id, uid) {
-    console.log(uid);
-    const v = ref(database, 'users/' + uid + '/events/id' + id);
+    
+    console.log(id);
+    const v = ref(database, 'users/' + uid + '/events/' + id);
     remove(v).then(() => {
         console.log("Unregistered.");
         location.reload();
