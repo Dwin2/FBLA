@@ -1,0 +1,22 @@
+/* Login banner */
+#login-banner {
+    font-size: 50px;
+}
+
+/* Login container */
+#login-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    font-size: 30px;
+    color: #ffffff;
+    background-color: #22468e;
+    padding: 50px;
+    border-radius: 4vw;
+}
+
+.login-form {
+    margin-bottom: 20px;
+}
