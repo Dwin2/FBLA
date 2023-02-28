@@ -112,6 +112,14 @@ body {
             margin: auto;
             cursor: pointer;
         }
+
+        .badge {
+            border-radius: 1em !important;
+        }
+
+        .btn {
+            border-radius: 1em !important;
+        }
     /* #endregion event-cards */
 
 /* #endregion main body */
