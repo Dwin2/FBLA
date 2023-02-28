@@ -102,7 +102,6 @@ function includeHTML() {
     }
 };
 function getRank(uid) {
-
     const pointsRef = ref(database, 'users/' + uid + '/points');
     onValue(pointsRef, (snapshot) => {
         const points = snapshot.val();
@@ -125,5 +124,30 @@ function getRank(uid) {
     });    
 }
 
-export {addUserData, addCardBody, addEventInfo, unRegister, addEvent, includeHTML, getRank};
+function addLeaderboard() {
+
+    const userRef = ref(database, 'users/');
+    onValue(userRef, (snapshot) => {
+        var rankings = []
+        snapshot.forEach((childSnapshot) => {
+            const childKey = childSnapshot.key;
+            const childData = childSnapshot.val();
+            //console.log(childKey, uid, childData['points']);
+            rankings.push([childData['points'], childData['name']]);
+        });
+        rankings.sort();
+        rankings.reverse();
+        for (let i =0; i < Math.min(10, rankings.length); i++) {
+            const tmp = '<div class="row" style="margin-top: 5%;">';
+            const lbBody = tmp.concat('<div class="col leaderboard-rank txt-secondary">', String(i+1), ".",'</div>', '<div class="leaderboard-name txt-secondary">', String(rankings[i][1]), '</div>','<div class="col leaderboard-points txt-secondary">', String(rankings[i][0]) + ' Points' + 
+            '</div>' + '<div class="bar-container"> <div class="bar" style="width:' + String((rankings[i][0]/1000.0)*100) + '%"></div></div></div>');
+            document.getElementById("leaderboard").innerHTML += lbBody;
+        }
+    });
+
+
+    
+}
+
+export {addUserData, addCardBody, addEventInfo, unRegister, addEvent, includeHTML, getRank, addLeaderboard};
 

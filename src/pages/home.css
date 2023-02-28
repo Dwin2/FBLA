@@ -66,6 +66,7 @@ body {
 
         /* #region leaderboard main table */
             #leaderboard .row div {
+                
                 font-size: 25px;
             }
 
@@ -76,16 +77,22 @@ body {
             }
 
             .leaderboard-header {
+                margin-right: 60px;
                 background-color: #527fd3;
                 color: #ffffff;
+                font-size: 30px;
             }
 
             .leaderboard-name {
                 padding: 10px;
+                margin-left: 0px;
+                text-align: left;
             }
 
             .leaderboard-points {
                 padding: 10px;
+                text-align: right;
+                margin-right: 5%;
             }
         /* #endregion  */
     /* #endregion leaderboard */

@@ -70,48 +70,12 @@
       
       
       <!-- Leaderboard table -->
-      <div class="col container-fluid container-custom" id="leaderboard">
-          <!-- Leaderboard Header -->
-          <div class="row leaderboard-header">
-              <div class="col leaderboard-rank">
-                  #
-              </div>
-              <div class="col-2 leaderboard-name">
-                  Name
-              </div>
-              <div class="col leaderboard-points">
-                  # of Points
-              </div>
-          </div>
-
-          <!-- Row 1 -->
-          <div class="row">
-              <div class="col leaderboard-rank">
-                  1
-              </div>
-              <div class="col-2 leaderboard-name">
-                  Name
-              </div>
-              <div class="col leaderboard-points">
-                  Points
-              </div>
-          </div>
-
-          <!-- Row 2 -->
-          <div class="row">
-              <div class="col leaderboard-rank">
-                  2
-              </div>
-              <div class="col-2 leaderboard-name">
-                  Name
-              </div>
-              <div class="col leaderboard-points">
-                  # of Points
-              </div>
-          </div>
+      <div class="col container-fluid container-custom leaderboard-header" id="leaderboard">
+          <div class="txt-primary" style="text-align: center;">School Leaderboards</div>
       </div>
+    </div>
   </div>
-  </div>
+
   <div id="cards" style="display:none;">
 	</div>
   
@@ -169,8 +133,9 @@
 <script type="module">
     import {createUserWithEmailAndPassword, signOut, set, ref, get, child, onValue, app, auth, database, userId} from "../data/firebase.js";
     import {logOut} from '../data/login.js';
-    import {addUserData, addCardBody, addEventInfo, unRegister, includeHTML, getRank} from '../data/helpers.js';
+    import {addUserData, addCardBody, addEventInfo, unRegister, includeHTML, getRank, addLeaderboard} from '../data/helpers.js';
     includeHTML();
+    addLeaderboard();
     auth.onAuthStateChanged(function(user) {
     //add progess bar
         if (user) {
