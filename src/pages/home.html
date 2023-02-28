@@ -32,7 +32,7 @@
 
             <!-- #region Event cards -->
             <!-- Row 1 -->
-            <div id = "cards">
+            <div id="cards">
             </div>
             <!-- #endregion Event Cards -->
 
@@ -68,11 +68,13 @@
             </div>
         
     </body>
+
     <script text="text/javascript">
         function register(id) {
             document.getElementById("tmp").innerHTML = id;
         }
     </script>
+    
     <script type="module">
         import {createUserWithEmailAndPassword, signOut, set, ref, get, child, onValue, app, auth, database, userId} from "../data/firebase.js";
         import {logOut} from '../data/login.js';
