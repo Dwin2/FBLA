@@ -8,16 +8,16 @@ function addUserData(path, id, msgStart, msgEnd) {
     });
 }
 function addCardBody(id, flag) {
-    var cardBody = '<div class="card" style="margin-left: 6%;">' +
-    '<div class="card-body bg-white">' + 
-    '<h5 class="card-title" id="' + id + '-name"></span></h5>' + 
-    '<h5 class="card-tag"><span class="badge" id="' + id + '-tags"></span></h5>' +
-    '<hr class="my-4">' + 
-    '<p class="txt" id="' + id + '-description"></p>' + 
-    '<p class="txt" id="' + id + '-location"><strong>Location: </strong></p>' + 
-    '<p class="txt" id="' + id + '-date"><strong>Date: </strong></p>' + 
-    '<p class="txt" id="' + id + '-time"><strong>Time: </strong></p>' + 
-    '<a href="./login.html" class="btn btn-primary" style="margin-top: 2%; font-size: 20px; margin-right: 6%;">More Info</a>';
+    var cardBody = `<div class="card" style="margin-left: 6%;">` +
+    `<div class="card-body bg-white">` + 
+    `<h5 class="card-title" id="${id}-name"></span></h5>` + 
+    `<h5 class="card-tag"><span class="badge" id="${id}-tags"></span></h5>` +
+    `<hr class="my-4">` + 
+    `<p class="txt" id="${id}-description"></p>` + 
+    `<p class="txt" id="${id}-location"><strong>Location: </strong></p>` + 
+    `<p class="txt" id="${id}-date"><strong>Date: </strong></p>` + 
+    `<p class="txt" id="${id}-time"><strong>Time: </strong></p>` + 
+    '<a href="/index2.html" class="btn btn-primary" style="margin-top: 2%; font-size: 20px; margin-right: 6%;">More Info</a>';
     if (!flag) {
         cardBody += '<button data-toggle="modal" data-target="#modal" class="btn btn-danger" style="margin-top: 2%; font-size: 20px;" onclick="unRegister(' + "'" + id +"'" + ');">Unregister</button>' +
         '</div>' + 
