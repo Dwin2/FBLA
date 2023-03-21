@@ -23,17 +23,27 @@
             </div>
 
             <div class="row login-form" id="userIn">
-                <input type="text" autofocus placeholder="Username" id="username" >
+                <input type="text" autofocus placeholder="Name" id="name" >
+            </div>
+
+            <div class="row login-form" id="userIn">
+                <input type="text" autofocus placeholder="Email" id="email" >
             </div>
 
             <div class="row login-form" id="passIn">
                 <input type="text" autofocus placeholder="Password" id="password" >
             </div>
 
-            <button type="button" class="btn btn-lg btn-light" onclick="login()">Log In</button>
-            <button type="button" class="btn btn-lg btn-warning" onclick="register()">Register</button>
+            <button id="loginBtn" type="button" class="btn btn-lg btn-light">Log In</button>
+            <button id="registerBtn" type="button" class="btn btn-lg btn-warning">Register</button>
         </div>
 
         <a href="./src/pages/home.html">Home</a>
     </body>
+    <script type="module">
+        import {logIn, signUp} from '../src/data/login.js';
+        
+        loginBtn.addEventListener('click', (e) => {logIn();});
+        registerBtn.addEventListener('click', (e) => {signUp();});
+    </script>
 </html>

@@ -1,11 +1,11 @@
-import {createUserWithEmailAndPassword, signOut, set, ref, get, child, onValue, app, auth, database, userId} from './firebase.js';
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword, update, signOut, set, ref, get, child, onValue, app, auth, database, userId} from './firebase.js';
 
 function logIn() {
     event.preventDefault();
 
-    var email = document.getElementById('email_input').value;
-    var name = document.getElementById('name_input').value;
-    var password = document.getElementById('psw_input').value;
+    var email = document.getElementById('email').value;
+    var name = document.getElementById('name').value;
+    var password = document.getElementById('password').value;
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -35,9 +35,9 @@ function logIn() {
 function signUp() {
     event.preventDefault();
     
-    var email = document.getElementById('email_input').value;
-    var name = document.getElementById('name_input').value;
-    var password = document.getElementById('psw_input').value;
+    var email = document.getElementById('email').value;
+    var name = document.getElementById('name').value;
+    var password = document.getElementById('password').value;
 
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
