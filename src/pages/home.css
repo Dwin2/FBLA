@@ -123,3 +123,11 @@ body {
     /* #endregion event-cards */
 
 /* #endregion main body */
+
+
+/* #region calendar */
+#calendar {
+    width: 100vw;
+    height: calc(100vh - 100px);
+}
+/* #endregion calendar */
