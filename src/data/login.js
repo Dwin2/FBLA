@@ -18,7 +18,7 @@ function logIn() {
         .then(() => {
           // Data saved successfully!
           alert('Logged in successfully');
-          window.location.href = "index.html";
+          window.location.href = "./src/pages/home.html";
         })
         .catch((error) => {
           // The write failed...
@@ -68,7 +68,7 @@ function signUp() {
 };
 function logOut() {
   signOut(auth).then(() => {
-    window.location.href = "./login.html";
+    window.location.href = "/index.html";
     // Sign-out successful.
   }).catch((error) => {
     alert(error);
