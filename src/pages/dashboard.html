@@ -1,164 +1,164 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	
-    <!--Fonts-->
-    <link href="https://fonts.cdnfonts.com/css/nexa-slab-free" rel="stylesheet">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		
+	<!--Fonts-->
+	<link href="https://fonts.cdnfonts.com/css/nexa-slab-free" rel="stylesheet">
 
 	<!-- Our CSS -->
-    <!--<link href="dashboard.css" rel="stylesheet">-->
-    <link rel="stylesheet" href="./dashboard.css">
+	<!--<link href="dashboard.css" rel="stylesheet">-->
+	<link rel="stylesheet" href="./dashboard.css">
 
-    <link rel="stylesheet" href="./home.css">
+	<link rel="stylesheet" href="./home.css">
 
-    <!--MY HTML-->
-	
-    <!-- Title -->
+	<!--MY HTML-->
+
+	<!-- Title -->
 	<title>Student Dashboard</title>
 
-  <!--FIREBASE SCRIPTS-->
-  <!--<script type="module" src="./database/firebase.js"></script>-->
+	<!--FIREBASE SCRIPTS-->
+	<!--<script type="module" src="./database/firebase.js"></script>-->
 </head>
 
 <body>
 	<!--ALERTS-->
-  <div class="modal fade" id="a-failed">
-    <div class="modal-dialog" role="document">
-      <div class="alert alert-danger alert-dismissable txt" role="alert">
-        <strong>Failed to unregister</strong>
-      </div>
-    </div>
-  </div>
-
-
-  <!--TMP-->
-  <div style="display:none;">
-    <h2 id="tmp" class="txt-primary"></h2>
-  </div>
-  
-  <div w3-include-html="../elements/navbar.html"></div> 
-
-  <button id="logOutBtn" type="button" class="btn btn-danger txt-primary" style="font-size: 30px; margin-left: 80%;">Log Out</button>			  
-  <h2 class="txt-primary" id="greet" style="text-align: center;">No user found.</h2>
-  <hr class="my-4" style="width : 80%;">
-  
-  <div class="headers">
-		  <button type="button" class="btn btn-1 txt-primary" style="font-size: 40px;" onclick="change(1);">My Events</button>			  
-      <button type="button" class="btn btn-success txt-primary" style="font-size: 40px;" onclick="change(0);">Rankings</button>
-      <button type="button" class="btn btn-danger txt-primary" style="font-size: 40px;">Event History</button>
-  </div>
-  <div id="points" style="display:none;">
-    
-    <h4 id="myPoints"></h2>
-    <!-- Leaderboard segment -->
-    <div class="row">
-      <!-- User Placement -->
-      <div class="col-5 leaderboard-placement shadow" id="placement">
-          <img class="profilePic" src="/src/img/avatars/avatar-2.jpg">
-          Your ranking:
-      </div>
-      
-      
-      <!-- Leaderboard table -->
-      <div class="col container-fluid container-custom leaderboard-header" id="leaderboard">
-          <div class="txt-primary" style="text-align: center;">School Leaderboards</div>
-      </div>
-    </div>
-  </div>
-
-  <div id="cards" style="display:none;">
+	<div class="modal fade" id="a-failed">
+		<div class="modal-dialog" role="document">
+		<div class="alert alert-danger alert-dismissable txt" role="alert">
+			<strong>Failed to unregister</strong>
+		</div>
+		</div>
 	</div>
-  
-  <!--MODALS-->
 
-  <div class="modal fade" id="modal">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <!-- <h4 class="modal-title" id="exampleModalLabel">Unregister</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div> -->
-        <div class="modal-body">
-          <p class="txt">Are you sure you want to unregister from this event? You will not gain any points.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          <button id="unRegBtn" type="button" class="btn btn-danger" data-dismiss="modal">Unregister</button>
-        </div>
-      </div>
-    </div>
-  </div>
+
+	<!--TMP-->
+	<div style="display:none;">
+		<h2 id="tmp" class="txt-primary"></h2>
+	</div>
+	
+	<div w3-include-html="../elements/navbar.html"></div> 
+
+	<button id="logOutBtn" type="button" class="btn btn-danger txt-primary" style="font-size: 30px; margin-left: 80%;">Log Out</button>			  
+	<h2 class="txt-primary" id="greet" style="text-align: center;">No user found.</h2>
+	<hr class="my-4" style="width : 80%;">
+	
+	<div class="headers">
+		<button type="button" class="btn btn-1 txt-primary" style="font-size: 40px;" onclick="change(1);">My Events</button>			  
+		<button type="button" class="btn btn-success txt-primary" style="font-size: 40px;" onclick="change(0);">Rankings</button>
+		<button type="button" class="btn btn-danger txt-primary" style="font-size: 40px;">Event History</button>
+	</div>
+	<div id="points" style="display:none;">
+		
+		<h4 id="myPoints"></h2>
+		<!-- Leaderboard segment -->
+		<div class="row">
+			<!-- User Placement -->
+			<div class="col-5 shadow">
+				<div class="leaderboard-placement">
+					<img class="profilePic" src="/src/img/avatars/avatar-2.jpg">
+					Your ranking:
+				</div>
+			</div>
+			
+			
+			<!-- Leaderboard table -->
+			<div class="col container-fluid container-custom leaderboard-header" id="leaderboard">
+				<div class="txt-primary" style="text-align: center;">School Leaderboards</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="cards" style="display:none;"></div>
+	
+	<!--MODALS-->
+	<div class="modal fade" id="modal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+				<!-- <h4 class="modal-title" id="exampleModalLabel">Unregister</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				</div> -->
+				<div class="modal-body">
+					<p class="txt">Are you sure you want to unregister from this event? You will not gain any points.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+					<button id="unRegBtn" type="button" class="btn btn-danger" data-dismiss="modal">Unregister</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 
-<script type="text/javascript">
-  function change(x) {
-    if (x == 1) {
-      document.getElementById("points").style.display = "none";
-      if (document.getElementById("cards").style.display == "none") {
-        document.getElementById("cards").style.display = "block";
-      } else {
-        document.getElementById("cards").style.display = "none";
-      }
-    } else {
-      document.getElementById("cards").style.display = "none";
-      if (document.getElementById("points").style.display == "none") {
-        document.getElementById("points").style.display = "block";
-      } else {
-        document.getElementById("points").style.display = "none";
-      }
-    }
-  }
-  function unRegister(id) {
-    console.log(id);
-    document.getElementById("tmp").innerHTML = id;
-  }
-</script>
-<script type="module">
-    import {createUserWithEmailAndPassword, signOut, set, ref, get, child, onValue, app, auth, database, userId} from "../data/firebase.js";
-    import {logOut} from '../data/login.js';
-    import {addUserData, addCardBody, addEventInfo, unRegister, includeHTML, getRank, addLeaderboard} from '../data/helpers.js';
-    includeHTML();
-    addLeaderboard();
-    auth.onAuthStateChanged(function(user) {
-    //add progess bar
-        if (user) {
-          addUserData('users/' + user.uid + '/name', "greet", "Welcome back, ", ".");
-          addUserData('users/' + user.uid + '/points', "myPoints", "You have ", " current points.")
+	<script type="text/javascript">
+	function change(x) {
+		if (x == 1) {
+		document.getElementById("points").style.display = "none";
+		if (document.getElementById("cards").style.display == "none") {
+			document.getElementById("cards").style.display = "block";
+		} else {
+			document.getElementById("cards").style.display = "none";
+		}
+		} else {
+		document.getElementById("cards").style.display = "none";
+		if (document.getElementById("points").style.display == "none") {
+			document.getElementById("points").style.display = "block";
+		} else {
+			document.getElementById("points").style.display = "none";
+		}
+		}
+	}
+	function unRegister(id) {
+		console.log(id);
+		document.getElementById("tmp").innerHTML = id;
+	}
+	</script>
+	<script type="module">
+	import {createUserWithEmailAndPassword, signOut, set, ref, get, child, onValue, app, auth, database, userId} from "../data/firebase.js";
+	import {logOut} from '../data/login.js';
+	import {addUserData, addCardBody, addEventInfo, unRegister, includeHTML, getRank, addLeaderboard} from '../data/helpers.js';
+	includeHTML();
+	addLeaderboard();
+	auth.onAuthStateChanged(function(user) {
+	//add progess bar
+		if (user) {
+		addUserData('users/' + user.uid + '/name', "greet", "Welcome back, ", ".");
+		addUserData('users/' + user.uid + '/points', "myPoints", "You have ", " current points.")
 
-          getRank(user.uid);
+		getRank(user.uid);
 
-          const userRef = ref(database, 'users/' + user.uid + '/events');
-          onValue(userRef, (snapshot) => {
-            snapshot.forEach((childSnapshot) => {
-              const childKey = childSnapshot.key;
-              const childData = childSnapshot.val();
+		const userRef = ref(database, 'users/' + user.uid + '/events');
+		
+		onValue(userRef, (snapshot) => {
+			snapshot.forEach((childSnapshot) => {
+			const childKey = childSnapshot.key;
+			const childData = childSnapshot.val();
 
-              //CHANGE CARDS TO EVENTS
-              addCardBody(childKey, false);
-              addEventInfo(childKey, childKey);
-            });
-          });
-          unRegBtn.addEventListener('click', (e) => {unRegister(document.getElementById("tmp").innerHTML, user.uid);}); 
-          logOutBtn.addEventListener('click', (e) => {logOut();});
-          // addEventModal.addEventListener('click', (e) => {
-          //   openModal();
-          //   //addEvent.addEventListener()
-          // });
-        }
-    });
-    
-</script>
+			//CHANGE CARDS TO EVENTS
+			addCardBody(childKey, false);
+			addEventInfo(childKey, childKey);
+			});
+		});
+		unRegBtn.addEventListener('click', (e) => {unRegister(document.getElementById("tmp").innerHTML, user.uid);}); 
+		logOutBtn.addEventListener('click', (e) => {logOut();});
+		// addEventModal.addEventListener('click', (e) => {
+		//   openModal();
+		//   //addEvent.addEventListener()
+		// });
+		}
+	});
+	</script>
 </html>
