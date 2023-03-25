@@ -22,8 +22,6 @@
 
 	<link rel="stylesheet" href="./home.css">
 
-	<!--MY HTML-->
-
 	<!-- Title -->
 	<title>Student Dashboard</title>
 
@@ -141,7 +139,7 @@
 		getRank(user.uid);
 
 		const userRef = ref(database, 'users/' + user.uid + '/events');
-		
+
 		onValue(userRef, (snapshot) => {
 			snapshot.forEach((childSnapshot) => {
 			const childKey = childSnapshot.key;
