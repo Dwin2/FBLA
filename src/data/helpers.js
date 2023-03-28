@@ -30,6 +30,7 @@ function addCardBody(id, flag) {
     
     document.getElementById("cards").innerHTML += cardBody;
 }
+
 function addEventInfo(childData, idx) {
     const eventRef = ref(database, 'events/' + childData);
     onValue(eventRef, (snapshot) => {

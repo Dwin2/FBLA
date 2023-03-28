@@ -4,7 +4,6 @@ function logIn() {
     event.preventDefault();
 
     var email = document.getElementById('email').value;
-    var name = document.getElementById('name').value;
     var password = document.getElementById('password').value;
 
     signInWithEmailAndPassword(auth, email, password)

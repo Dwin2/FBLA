@@ -16,6 +16,8 @@
     </head>
     <body>
         <div w3-include-html="../elements/navbar.html"></div> 
+        <button id="logOutBtn" type="button" class="btn btn-danger txt-primary" style="font-size: 30px; margin-left: 80%;">Log Out</button>			  
+	
 
         <!-- Main body -->
         <div class="container-fluid container-custom" id="main-bodfy">
@@ -97,7 +99,7 @@
                 //ALERT NOT REGISTERED
             }
         });
-        
+        logOutBtn.addEventListener('click', (e) => {logOut(); })
         
     </script>
 </html>
