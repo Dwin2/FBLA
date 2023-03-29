@@ -45,8 +45,7 @@
 
 
 /* Removes the white frame around the page */
-body
-{
+body {
   margin: 0px;
   padding: 0px;
 }
@@ -84,30 +83,35 @@ body
   vertical-align: top;
   border-width: 3px;
 }
+
 .card-title {
   font-size: 40px;
 }
+
 .card-tag {
   font-size: 30px;
 }
+
 .tmp-card {
   display: "none";
 }
+
 .myrow {
   display: inline-block;
 }
-.modal-header
-{
+
+.modal-header {
 display: block!important;
 }
-.modal-title
-{
+
+.modal-title {
 float: left;
 }
-.modal-header .close
-{
+
+.modal-header .close {
 float: right;
 }
+
 .alert {
   min-height: 10%;
   width:80%;
@@ -115,11 +119,13 @@ float: right;
   margin-right: auto;
   text-align: center;
 }
+
 .bar {
   width:20%;
   height : 25px;
   background-color: #233c6a;
 }
+
 .bar-container {
   width: 100%;
   background-color: #f1f1f1;
