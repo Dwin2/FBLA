@@ -52,7 +52,7 @@ function signUp() {
               // Data saved successfully!
               alert('User created successfully');
               //alert(user.password); 
-              window.location.href = "/FBLA/index.html";
+              window.location.href = "./pages/home.html";
             })
             .catch((error) => {
               // The write failed...
