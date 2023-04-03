@@ -67,7 +67,7 @@ function signUp() {
 };
 function logOut() {
   signOut(auth).then(() => {
-    window.location.href = "/index.html";
+    window.location.href = "../../index.html";
     // Sign-out successful.
   }).catch((error) => {
     alert(error);
