@@ -45,7 +45,6 @@
 	
 	<div w3-include-html="../elements/navbar.html"></div> 
 
-	<button id="logOutBtn" type="button" class="btn btn-danger txt-primary" style="font-size: 30px; margin-left: 80%;">Log Out</button>			  
 	<h2 class="txt-primary" id="greet" style="text-align: center;">No user found.</h2>
 	<hr class="my-4" style="width : 80%;">
 	
@@ -55,22 +54,20 @@
 		<button type="button" class="btn btn-danger txt-primary" style="font-size: 40px;">Event History</button>
 	</div>
 	<div id="points" style="display:none;">
+		<br><br>
 		
-		<h4 id="myPoints"></h2>
 		<!-- Leaderboard segment -->
 		<div class="row">
 			<!-- User Placement -->
-			<div class="col-5 shadow">
-				<div class="leaderboard-placement">
-					<img class="profilePic" src="/src/img/avatars/avatar-2.jpg">
-					Your ranking:
-				</div>
+			<div class="col-5">
+				<h2 id="myPoints" style="margin-left: 30px;">Points: </h2>
+				<h2 id="rank" style="margin-left: 30px;">Your current rank: </h2>
 			</div>
 			
 			
 			<!-- Leaderboard table -->
 			<div class="col container-fluid container-custom leaderboard-header" id="leaderboard">
-				<div class="txt-primary" style="text-align: center;">School Leaderboards</div>
+				<div class="txt-primary" style="text-align: center;">School Leaderboard</div>
 			</div>
 		</div>
 	</div>
@@ -132,7 +129,7 @@
 	//add progess bar
 		if (user) {
 		addUserData('users/' + user.uid + '/name', "greet", "Welcome back, ", ".");
-		addUserData('users/' + user.uid + '/points', "myPoints", "You have ", " current points.")
+		addUserData('users/' + user.uid + '/points', "myPoints", "Current Points: ", "")		
 
 		getRank(user.uid);
 

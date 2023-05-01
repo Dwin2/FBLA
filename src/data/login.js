@@ -47,6 +47,7 @@ function signUp() {
               name : name,
               email: email,
               password: password,
+              points : 0,
             })
             .then(() => {
               // Data saved successfully!

@@ -102,7 +102,7 @@ function includeHTML() {
         }
     }
 };
-function getRank(uid) {
+function getRank(uid, self=true) {
     const pointsRef = ref(database, 'users/' + uid + '/points');
     onValue(pointsRef, (snapshot) => {
         const points = snapshot.val();
@@ -116,17 +116,16 @@ function getRank(uid) {
                 //console.log(childKey, uid, childData['points']);
                 if (childData['points'] > points) rank+= 1;
             });
-            document.getElementById("placement").innerHTML += rank;
-            if (rank == 1) document.getElementById("placement").innerHTML += "st";
-            else if (rank == 2) document.getElementById("placement").innerHTML += "nd";
-            else if (rank == 3) document.getElementById("placement").innerHTML += "rd";
-            else document.getElementById("placement").innerHTML += "th";
+            document.getElementById("rank").innerHTML += rank;
+            if (rank == 1) document.getElementById("rank").innerHTML += "st";
+            else if (rank == 2) document.getElementById("rank").innerHTML += "nd";
+            else if (rank == 3) document.getElementById("rank").innerHTML += "rd";
+            else document.getElementById("rank").innerHTML += "th";
         });
     });    
 }
 
 function addLeaderboard() {
-
     const userRef = ref(database, 'users/');
     onValue(userRef, (snapshot) => {
         var rankings = []
@@ -134,20 +133,21 @@ function addLeaderboard() {
             const childKey = childSnapshot.key;
             const childData = childSnapshot.val();
             //console.log(childKey, uid, childData['points']);
-            rankings.push([childData['points'], childData['name']]);
+            rankings.push({name: childData['name'], points: childData['points']});
         });
-        rankings.sort();
-        rankings.reverse();
+        rankings.sort(function(a, b) {
+            return b.points - a.points;
+        });
+        console.log(rankings)
         for (let i =0; i < Math.min(10, rankings.length); i++) {
             const tmp = '<div class="row" style="margin-top: 5%;">';
-            const lbBody = tmp.concat('<div class="col leaderboard-rank txt-secondary">', String(i+1), ".",'</div>', '<div class="leaderboard-name txt-secondary">', String(rankings[i][1]), '</div>','<div class="col leaderboard-points txt-secondary">', String(rankings[i][0]) + ' Points' + 
-            '</div>' + '<div class="bar-container"> <div class="bar" style="width:' + String((rankings[i][0]/1000.0)*100) + '%"></div></div></div>');
+            const lbBody = tmp.concat('<div class="col txt-secondary" style="margin-right:0px">', String(i+1), ". ",'</div>'+
+             '<div class="txt-secondary" style="margin-left:0px">', String(rankings[i]["name"]), '</div>'
+            + '<div class="col leaderboard-points txt-secondary">', String(rankings[i]["points"]) + ' Points' + 
+            '</div>' + '<div class="bar-container"> <div class="bar" style="width:' + String((rankings[i]["points"]/100.0)*100) + '%"></div></div></div>');
             document.getElementById("leaderboard").innerHTML += lbBody;
         }
-    });
-
-
-    
+    });    
 }
 
 export {addUserData, addCardBody, addEventInfo, unRegister, addEvent, includeHTML, getRank, addLeaderboard};

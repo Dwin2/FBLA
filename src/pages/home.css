@@ -70,23 +70,11 @@ body {
                 font-size: 25px;
             }
 
-            .leaderboard-rank {
-                text-align: center;
-                max-width: 20px !important;
-                padding: 10px;
-            }
-
             .leaderboard-header {
                 margin-right: 60px;
                 background-color: #527fd3;
                 color: #ffffff;
                 font-size: 30px;
-            }
-
-            .leaderboard-name {
-                padding: 10px;
-                margin-left: 0px;
-                text-align: left;
             }
 
             .leaderboard-points {
